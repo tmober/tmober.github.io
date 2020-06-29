@@ -51,30 +51,32 @@ $(document).ready(function() {
 
      // popover function
      $('[data-toggle="popover"]').popover();
+  
+    // open all accordion panels for possible printing or close  
+    $(".expander").on("click", function() {   
+    
+      if ($(".expander").text() === "show all") {       
+      
+      // Change the button text      
+      $(".expander").text("hide all");        
+      // show all accordions     
+      $(".panel-collapse").collapse('show');      
+      
+    } else {
+      // Change the button text
+      $(".expander").text("show all");
+      // hide all accordions
+      $(".panel-collapse").collapse('hide');
+    }
+  });
 
-     // open all accordion panels for possible rinting
-     $(".expander").on("click", function() {
+ //    $(".accordion-toggle").on("click", function() {
 
-        // Change the button
-        if ($(".expander").text() == "show all") {
-           $(".expander").text("hide all");
-           $(".panel-collapse").addClass("in");
-           $(".panel-default a").attr("aria-expanded", "true").removeClass("collapsed");
-        } else {
-           $(".expander").text("show all");
-           $(".panel-collapse").removeClass("in");
-           $(".panel-default a").attr("aria-expanded", "false").addClass("collapsed");
-        }
+ //        $(".panel-collapse").removeClass("in");
+ //        $(".panel-default a").attr("aria-expanded", "false").addClass("collapsed");
+ //       $(".expander").text("show all");
 
-     });
-
-     $(".accordion-toggle").on("click", function() {
-
-        $(".panel-collapse").removeClass("in");
-        $(".panel-default a").attr("aria-expanded", "false").addClass("collapsed");
-        $(".expander").text("show all");
-
-     });
+ //     });
 
 
 });
